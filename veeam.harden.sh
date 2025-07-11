@@ -182,7 +182,7 @@ replace_file "^.*password[[:space:]]*\[success=1[[:space:]]*default=ignore\][[:s
 print_job "V-238235: operating system must automatically lock an account until the locked account is released by an administrator when three unsuccessful logon attempts have been made"
 update_file "^.*audit.*$" "audit" /etc/security/faillock.conf
 update_file "^.*silent.*$" "silent" /etc/security/faillock.conf
-update_file "^.*deny.*$" "deny = 3" /etc/security/faillock.conf
+update_file "^.*deny.*$" "deny = 10" /etc/security/faillock.conf
 update_file "^.*fail_interval.*$" "fail_interval = 900" /etc/security/faillock.conf
 update_file "^.*unlock_time.*$" "unlock_time = 0" /etc/security/faillock.conf
 

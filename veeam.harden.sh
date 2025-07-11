@@ -61,8 +61,8 @@ export DEBIAN_FRONTEND=noninteractive
 clear
 print_job "Veeam DISA STIG automated hardening process started"
 
-print_job "apt update and upgrade"
-run_cmd " apt update && apt upgrade -y"
+#print_job "apt update and upgrade"
+#run_cmd " apt update && apt upgrade -y"
 
 # install/remove services
 print_job "V-238200: operating system must allow users to directly initiate a session lock for all connection types"

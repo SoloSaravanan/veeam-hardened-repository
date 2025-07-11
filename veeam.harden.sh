@@ -209,8 +209,8 @@ update_file "^.*-w[[:space:]]*\/etc\/gshadow[[:space:]]*-p[[:space:]]*wa[[:space
 print_job "V-238242: operating system must generate audit rules for modification in /etc/security/opasswd"
 update_file "^.*-w[[:space:]]*\/etc\/security\/opasswd[[:space:]]*-p[[:space:]]*wa[[:space:]]*-k[[:space:]]*usergroup_modification.*$" "-w /etc/security/opasswd -p wa -k usergroup_modification" /etc/audit/rules.d/stig.rules
 
-print_job "V-238244: operating system must shut down by default upon audit failure"
-update_file "^.*disk_full_action.*$" "disk_full_action = HALT" /etc/audit/auditd.conf
+#print_job "V-238244: operating system must shut down by default upon audit failure"
+#update_file "^.*disk_full_action.*$" "disk_full_action = HALT" /etc/audit/auditd.conf
 
 print_job "V-238245: operating system must be configured so that audit log files are not read or write-accessible by unauthorized users"
 run_cmd "chmod 0600 /var/log/audit/*"

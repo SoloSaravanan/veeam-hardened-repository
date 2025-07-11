@@ -85,8 +85,8 @@ print_job "V-238353: operating system must be configured to preserve log records
 run_cmd "apt-get install -y rsyslog"
 run_cmd "systemctl enable --now rsyslog"
 
-print_job "V-238354: operating system must have an application firewall installed in order to control remote access methods"
-run_cmd "apt-get install -y ufw"
+#print_job "V-238354: operating system must have an application firewall installed in order to control remote access methods"
+#run_cmd "apt-get install -y ufw"
 
 print_job "V-238360: operating system must be configured to use AppArmor"
 run_cmd "apt-get install -y apparmor"
@@ -403,12 +403,12 @@ update_file "^.*ENCRYPT_METHOD.*$" "ENCRYPT_METHOD SHA512" /etc/login.defs
 
 print_job "V-238328: operating system must be configured to prohibit or restrict the use of functions, ports, protocols, and/or services, as defined in the PPSM CAL and vulnerability assessments"
 #deny incoming, allow outgoing
-run_cmd "ufw default deny incoming"
-run_cmd "ufw default allow outgoing"
+#run_cmd "ufw default deny incoming"
+#run_cmd "ufw default allow outgoing"
 #allow ssh
-run_cmd "ufw allow ssh"
+#run_cmd "ufw allow ssh"
 #ufw enable
-run_cmd "ufw --force enable"
+#run_cmd "ufw --force enable"
 
 print_job "V-238329: operating system must prevent direct login into the root account"
 run_cmd "passwd -l root"
@@ -470,8 +470,8 @@ run_cmd "find /lib /usr/lib /lib64 ! -group root -type f -exec chgrp root '{}' \
 print_job "V-238352: operating system library directories must be group-owned by root"
 run_cmd "find /lib /usr/lib /lib64 ! -group root -type d -exec chgrp root '{}' \;"
 
-print_job "V-238355: operating system must enable and run the uncomplicated firewall(ufw)"
-run_cmd "systemctl enable --now ufw.service"
+#print_job "V-238355: operating system must enable and run the uncomplicated firewall(ufw)"
+#run_cmd "systemctl enable --now ufw.service"
 #run_cmd "systemctl start ufw.service" -- no need as we enable and start already
 
 print_job "V-238356: operating system must, for networked systems, compare internal information system clocks at least every 24 hours with a server"
@@ -533,7 +533,7 @@ run_cmd "systemctl restart sshd.service"
 run_cmd "systemctl restart auditd.service"
 
 # ufw
-run_cmd "systemctl restart ufw.service"
+#run_cmd "systemctl restart ufw.service"
 
 # chrony
 run_cmd "systemctl restart chrony.service"

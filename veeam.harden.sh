@@ -98,7 +98,7 @@ run_cmd "apt-get install -y libpam-pwquality"
 run_cmd "apt-get install -y chrony"
 
 # unlocking updates from 'focal-upgrades'
-replace_file "^.*\"\${distro_id}:\${distro_codename}-updates\".*$" "\"\${distro_id}:\${distro_codename}-updates\";" /etc/apt/apt.conf.d/50unattended-upgrades
+# replace_file "^.*\"\${distro_id}:\${distro_codename}-updates\".*$" "\"\${distro_id}:\${distro_codename}-updates\";" /etc/apt/apt.conf.d/50unattended-upgrades
 
 #configuration
 print_job "V-238202: operating system must enforce 24 hours/1 day as the minimum password lifetime"
@@ -497,9 +497,9 @@ print_job "V-238369: operating system must implement address space layout random
 update_file "^.*kernel.randomize_va_space.*$" "" /etc/sysctl.conf
 run_cmd "sysctl --system"
 
-print_job "V-238370: operating system must be configured so that Advance Package Tool (APT) removes all software components after updated versions have been installed"
-update_file "^.*Unattended-Upgrade::Remove-Unused-Dependencies.*$" "Unattended-Upgrade::Remove-Unused-Dependencies \"true\"; " /etc/apt/apt.conf.d/50unattended-upgrades
-update_file "^.*Unattended-Upgrade::Remove-Unused-Kernel-Packages.*$" "Unattended-Upgrade::Remove-Unused-Kernel-Packages \"true\";" /etc/apt/apt.conf.d/50unattended-upgrades
+#print_job "V-238370: operating system must be configured so that Advance Package Tool (APT) removes all software components after updated versions have been installed"
+#update_file "^.*Unattended-Upgrade::Remove-Unused-Dependencies.*$" "Unattended-Upgrade::Remove-Unused-Dependencies \"true\"; " /etc/apt/apt.conf.d/50unattended-upgrades
+#update_file "^.*Unattended-Upgrade::Remove-Unused-Kernel-Packages.*$" "Unattended-Upgrade::Remove-Unused-Kernel-Packages \"true\";" /etc/apt/apt.conf.d/50unattended-upgrades
 
 print_job "V-238373: operating system must display the date and time of the last successful account logon upon logon"
 replace_file "^.*session[[:space:]]*required[[:space:]]*pam_lastlog.so[[:space:]]*showfailed.*$" "session    required    pam_lastlog.so showfailed" /etc/pam.d/login

@@ -527,7 +527,7 @@ run_cmd "echo blacklist usb-storage >> /etc/modprobe.d/DISASTIG.conf"
 
 # restart services to apply changes 
 # sshd 
-run_cmd "systemctl restart sshd.service"
+# run_cmd "systemctl restart sshd.service"
 
 # auditd
 run_cmd "systemctl restart auditd.service"

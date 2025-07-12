@@ -110,11 +110,11 @@ update_file "^.*PASS_MAX_DAYS.*$" "PASS_MAX_DAYS    60" /etc/login.defs
 print_job "V-238207: operating system must automatically terminate a user session after inactivity timeouts have expired"
 update_file "^.*TMOUT.*$" "TMOUT=600" /etc/profile.d/99-terminal_tmout.sh
 
-print_job "V-238208: operating system must require users to reauthenticate for privilege escalation or when changing roles"
-update_file "NOPASSWD" "" /etc/sudoers
-update_file "NOPASSWD" "" /etc/sudoers.d/* 
-update_file "!authenticate" "" /etc/sudoers
-update_file "!authenticate" "" /etc/sudoers.d/*
+#print_job "V-238208: operating system must require users to reauthenticate for privilege escalation or when changing roles"
+#update_file "NOPASSWD" "" /etc/sudoers
+#update_file "NOPASSWD" "" /etc/sudoers.d/* 
+#update_file "!authenticate" "" /etc/sudoers
+#update_file "!authenticate" "" /etc/sudoers.d/*
 
 print_job "V-238209: operating system default filesystem permissions must be defined in such a way that all authenticated users can read and modify only their own files"
 update_file "^.*UMASK.*$" "UMASK 077" /etc/login.defs
